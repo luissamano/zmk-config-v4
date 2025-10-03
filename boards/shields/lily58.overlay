@@ -1,17 +1,24 @@
 &i2c1 {
     status = "okay";
+
     ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         label = "SSD1306";
         width = <128>;
         height = <32>;
+
+        # Opciones para la posición y mapeo de la pantalla
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
+
+        # Configuración del driver SSD1306
         prechargep = <2>;
         multiplex-ratio = <31>;
         segment-remap;
         com-invdir;
+
+        status = "okay";   // ¡importante para que Zephyr lo habilite!
     };
 };
